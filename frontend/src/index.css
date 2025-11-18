@@ -1,0 +1,351 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SVETLA / TAMNA TEMA VARIJABLE */
+:root {
+  --bg-main: #f3f9ff;
+  --bg-main-2: #e3f0ff;
+  --bg-card: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --primary: #0066cc;
+  --primary-dark: #004da3;
+  --accent: #06b6d4;
+}
+
+body.dark-mode {
+  --bg-main: #020617;
+  --bg-main-2: #0b1220;
+  --bg-card: #0f172a;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --primary: #38bdf8;
+  --primary-dark: #0ea5e9;
+  --accent: #22c55e;
+}
+
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: radial-gradient(circle at top left, var(--bg-main-2), var(--bg-main));
+  color: var(--text-main);
+}
+
+/* Tekst boje – da u dark modu budu svetla */
+body, body * {
+  color: inherit;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode li,
+body.dark-mode .form-label {
+  color: var(--text-main);
+}
+
+body.dark-mode .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* INPUTI U DARK MODU */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #020617 !important;
+  color: var(--text-main) !important;
+  border-color: #1f2937 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+/* NAVBAR */
+.app-navbar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 10px 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+body.dark-mode .app-navbar {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+.app-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.app-navbar-left a {
+  text-decoration: none;
+}
+
+.app-logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.app-logo-mark span {
+  color: #ffffff;
+}
+
+.app-logo-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--primary-dark);
+}
+
+body.dark-mode .app-logo-text {
+  color: var(--primary);
+}
+
+.app-navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.app-navbar-links a {
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.app-navbar-links a:hover {
+  color: var(--primary-dark);
+}
+
+/* DARK MODE TOGGLE */
+.theme-toggle-btn {
+  margin-left: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 4px 10px;
+  font-size: 13px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+/* HOME PAGE */
+.home-container {
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.home-hero-card {
+  display: inline-block;
+  padding: 18px 26px 26px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
+}
+
+body.dark-mode .home-hero-card {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+.home-title {
+  font-size: clamp(2.3rem, 4vw, 3.1rem);
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+body.dark-mode .home-title {
+  color: var(--primary);
+}
+
+.home-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.home-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.home-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-dark);
+}
+
+.home-buttons a {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s, color 0.15s;
+}
+
+.btn-primary-rounded {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary-rounded:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+
+.btn-secondary-rounded {
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .btn-secondary-rounded {
+  background: transparent;
+}
+
+.btn-secondary-rounded:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+/* GLOBAL CARD STIL */
+.card {
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+
+/* GRIDEVI ZA DOKTORE */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+  margin: 10px 0 25px;
+}
+
+.doctor-card {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+body.dark-mode .doctor-card {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+.doctor-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.doctor-info-main {
+  font-weight: 600;
+}
+
+.doctor-spec {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.doctor-exp {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* FULLCALENDAR STIL */
+.fc {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.fc .fc-button {
+  background: var(--primary);
+  border: none;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+}
+
+.fc .fc-button:hover {
+  background: var(--primary-dark);
+}
+
+.fc .fc-day-today {
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+.fc .fc-event {
+  border-radius: 999px;
+  border: none;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  background: var(--accent);
+}
+
